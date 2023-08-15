@@ -32,6 +32,7 @@ const caesarModule = (function () {
 
     //for each element in msgArray - find in alphArray and return index
     msgArray.forEach((letter)=>{
+      //accounted for spaces but how do i account for any that aren't a letter?
       if(letter === " "){
         result.push(" ")
       }
@@ -46,10 +47,11 @@ const caesarModule = (function () {
             newIdx = newIdx % 26
           }
           if(newIdx < 0){
-            newIdx = -newIdx % 26
+            // index of z is 25, 
+            newIdx = 26 + newIdx
           }
           console.log(newIdx)
-          result.push(ltr)
+          result.push(alphArray[newIdx])
         }
       })
     })

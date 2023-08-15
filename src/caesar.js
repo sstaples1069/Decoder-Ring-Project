@@ -11,6 +11,14 @@ const caesarModule = (function () {
     if(shift === 0 || shift < -25 || shift > 25){
       return false
     }
+    //when encoding with shift 3 d = g, -3 d = a
+    //when decoding to make a = d need to add 3
+    //original shift = -3
+    //when decoding shift needs to flip: shift=-shift
+    if(encode === false){
+      shift = -shift
+    }
+    console.log(shift);
     let result = "";
     result = input;
     console.log(result);

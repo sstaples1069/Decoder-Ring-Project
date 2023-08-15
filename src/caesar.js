@@ -8,6 +8,8 @@ const caesarModule = (function () {
 
   function caesar(input="", shift=0, encode = true) {
     // your solution code here
+    // need to make msg all lowercase
+    let message = input.toLowerCase()
     if(shift === 0 || shift < -25 || shift > 25){
       return false
     }
@@ -18,9 +20,13 @@ const caesarModule = (function () {
     if(encode === false){
       shift = -shift
     }
+    //need to give values to letters in alphabet
+    //how to handle value increasing or decreasing over/under thresholds
+      //modules= "%" if i take the result of shift and modules 26 it will return the remaining value from dividing the number by the number given (26) which is the new index
     console.log(shift);
     let result = "";
-    result = input;
+    result = message;
+    console.log(input)
     console.log(result);
     return result
   }

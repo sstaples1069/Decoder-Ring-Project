@@ -38,17 +38,26 @@ const caesarModule = (function () {
       alphArray.find((ltr)=>{
         if(ltr===letter){
           //here is where i need to add shift logic
+          const index = alphArray.indexOf(ltr)
+          let newIdx = index + shift
+          //how to handle value increasing or decreasing over/under thresholds
+            //modules= "%" if i take the result of shift and modules 25 it will return the remaining value from dividing the number by the number given (25) which is the new index
+          if(newIdx > 25 ) {
+            newIdx = newIdx % 26
+          }
+          if(newIdx < 0){
+            newIdx = -newIdx % 26
+          }
+          console.log(newIdx)
           result.push(ltr)
         }
       })
     })
 
-    //how to handle value increasing or decreasing over/under thresholds
-      //modules= "%" if i take the result of shift and modules 26 it will return the remaining value from dividing the number by the number given (26) which is the new index
-    finalMsg = result.join("");
     console.log(result);
+    finalMsg = result.join("");
     console.log(finalMsg)
-    return result
+    return finalMsg
   }
 
   return {

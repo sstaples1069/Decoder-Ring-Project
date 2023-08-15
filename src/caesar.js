@@ -8,18 +8,16 @@ const caesarModule = (function () {
 
   function caesar(input="", shift=0, encode = true) {
     // your solution code here
-    // need to make msg all lowercase
-    let message = input.toLowerCase();
-    //create array so indexes can be referenced
-    const alphabet = "abcdefghijklmnopqrstuvwxyz";
-    const alphArray = Array.from(alphabet)
-    console.log(alphArray[0], alphArray[9])
-    let msgArray = Array.from(message)
-    console.log(input)
-    console.log(msgArray)
     if(shift === 0 || shift < -25 || shift > 25){
       return false
     }
+    // need to make msg all lowercase
+    let message = input.toLowerCase();
+    //need to give values to letters in alphabet
+    //create array so indexes can be referenced
+    const alphabet = "abcdefghijklmnopqrstuvwxyz";
+    const alphArray = Array.from(alphabet)
+    const msgArray = Array.from(message)
     //when encoding with shift 3 d = g, -3 d = a
     //when decoding to make a = d need to add 3
     //original shift = -3
@@ -27,14 +25,29 @@ const caesarModule = (function () {
     if(encode === false){
       shift = -shift
     }
-    console.log(shift);
-    //need to give values to letters in alphabet
-    
+    let result = [];
+    //need to use index value of the letter in the alphArray that matches the letter from the msgArray
+    //if the element in msgArray = " ", need to return " "
+    //then add shift to create new index value and return that letter from alphArray
+
+    //for each element in msgArray - find in alphArray and return index
+    msgArray.forEach((letter)=>{
+      if(letter === " "){
+        result.push(" ")
+      }
+      alphArray.find((ltr)=>{
+        if(ltr===letter){
+          //here is where i need to add shift logic
+          result.push(ltr)
+        }
+      })
+    })
+
     //how to handle value increasing or decreasing over/under thresholds
       //modules= "%" if i take the result of shift and modules 26 it will return the remaining value from dividing the number by the number given (26) which is the new index
-    let result = "";
-    result = message;
+    finalMsg = result.join("");
     console.log(result);
+    console.log(finalMsg)
     return result
   }
 

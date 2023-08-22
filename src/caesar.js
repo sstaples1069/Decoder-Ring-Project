@@ -33,13 +33,15 @@ const caesarModule = (function () {
     //for each element in msgArray - find in alphArray and return index
     msgArray.forEach((letter)=>{
       //accounted for spaces but how do i account for any that aren't a letter?
-      //***** HARD CODED MUST GO BACK AND REFACTOR
+     
+      //if(!alphabet.some((ltr)=>ltr===letter)){result.push(letter)}
+     
+
       if(letter === " " || letter === "," || letter === "'" || letter === "." || letter === "?" ){
         result.push(letter)
       }
       alphArray.find((ltr)=>{
         if(ltr===letter){
-          //here is where i need to add shift logic
           const index = alphArray.indexOf(ltr)
           let newIdx = index + shift
           //how to handle value increasing or decreasing over/under thresholds
@@ -55,10 +57,7 @@ const caesarModule = (function () {
         }
       })
     })
-
-    console.log(msgArray);
     finalMsg = result.join("");
-    console.log(finalMsg)
     return finalMsg
   }
 

@@ -49,7 +49,7 @@ const polybiusModule = (function () {
       });
       //need to combine the xy coordinates - can use reduce to change xColumn arr to new arr of pairs (y coord is first value of pair)
       //space added at idx5 of template[4] (x=6,y=5) to return a space
-      codedPairs = yRow.reduce((acc, yCoord, idx)=>{
+      results = yRow.reduce((acc, yCoord, idx)=>{
         let pair = `${xColumn[idx]}${yCoord}`;
         if(pair === "65"){
           pair = " ";
@@ -58,7 +58,6 @@ const polybiusModule = (function () {
         //return acc which becomes codedPairs array
         return acc
       },[]);
-      return codedPairs.join("");
     }
 
     //decoding
@@ -69,15 +68,13 @@ const polybiusModule = (function () {
       if(formattedInput.length % 2 !== 0) return false;
       //match method to create an array of each separate pair
       let coordinates = formattedInput.match(/..?/g);
-      console.log(coordinates);
-      decodedMsg = coordinates.map((xy)=>{
+      results = coordinates.map((xy)=>{
         let rowIndex = xy.split("")[1] - 1;
         let columnIndex = xy.split("")[0] - 1;
         return template[rowIndex][columnIndex]
       })
-      return decodedMsg.join("");
-
     }
+    return results.join("");
   }
 
   return {

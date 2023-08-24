@@ -59,7 +59,6 @@ const polybiusModule = (function () {
         return acc
       },[]);
     }
-
     //decoding
     if(!encode){
       //can use replace method to account for spaces

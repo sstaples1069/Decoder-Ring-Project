@@ -108,7 +108,7 @@ describe("Caesar Function", ()=>{
             expect(actual).to.equal(expected);            
         });
         //"Spaces should be aintained throughout, as should other nonalphabetic symbols."
-        it("should leaves spaces and other symbols as is", ()=>{
+        it("leaves spaces and other symbols as is", ()=>{
             const message = "xufhjx fsi xdrgtqx.";
             const shift = 5;
             const expected = "spaces and symbols.";

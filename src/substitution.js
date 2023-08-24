@@ -5,7 +5,6 @@
 
 const substitutionModule = (function () {
   // you can add any code you want within this function scope
-
   function substitution(input="", alphabet="", encode = true) {
     //initial validation: "The alphabet parameter must be a string of exactly 26 characters, which could include special characters such as #, $, *, etc. Otherwise, it should return false"
     if(!alphabet || alphabet.length !== 26) return false;
@@ -51,7 +50,7 @@ const substitutionModule = (function () {
     // encode or decode.
     return encode ? encodeMsg() : decodeMsg();
   }
-  
+
   return {
     substitution,
   };

@@ -1,7 +1,6 @@
 // Write your tests here!
 const { expect } = require("chai");
 const { polybius } = require("../src/polybius");
-
 describe("Polybius Function", () => {
     describe("encoding a message", () => {
         it("encodes a message by translating each letter to number pairs", () => {

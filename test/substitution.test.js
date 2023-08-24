@@ -89,7 +89,6 @@ describe("Substitution Function", () => {
             const expected = "se ret";
             const actual = substitution(message, alphabet, false);
             expect(actual).to.equal(expected);
-        });
-        
+        });        
     });
 });
